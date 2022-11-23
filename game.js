@@ -10,10 +10,6 @@ function getComputerChoice(){
         return 'Scissors';
     }
 }
-let computerselection = getComputerChoice();
-let playerselection = prompt("Choose among Rock/Paper/Scissors");
-playerselection = playerselection[0].toUpperCase() + playerselection.slice(1);
-
 function playRound(computerselection,playerselection){
     if(computerselection === playerselection){
         alert('Tie');
@@ -30,12 +26,16 @@ function playRound(computerselection,playerselection){
     else{
         alert(`You lose "${computerselection} beats ${playerselection}"`);
     }
+    return alert;
 
 }
 
 function game(){
     for(let i =0;i<5;i++){
-    playRound(computerselection,playerselection);
+    let computerselection = getComputerChoice();
+    let playerselection = prompt("Rock/Paper/Scissor");
+    let plchoice = playerselection[0].toUpperCase() + playerselection.slice(1);;
+    playRound(computerselection,plchoice);
 }
 }
 game();
