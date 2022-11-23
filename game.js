@@ -10,32 +10,44 @@ function getComputerChoice(){
         return 'Scissors';
     }
 }
+let playerwin = 0;
+let compwin = 0;
 function playRound(computerselection,playerselection){
     if(computerselection === playerselection){
-        alert('Tie');
+        playerwin++;
+        compwin++;
+        alert(`Tie\n player: ${playerwin}        computer: ${compwin}`);
     }
     else if(computerselection == 'Rock' && playerselection == 'Paper'){
-        alert("You Win, Paper beats Rock");
+        playerwin++;
+        alert(`You Win, Paper beats Rock\n player: ${playerwin}        computer: ${compwin}`);
     }
     else if(computerselection == 'Paper' && playerselection=='Scissors'){
-        alert("You Win, Scissors beats Paper");
+        playerwin++;
+        alert(`You Win, Scissors beats Paper\n player: ${playerwin}        computer: ${compwin}`);
     }
     else if(computerselection == 'Scissors' && playerselection == 'Rock'){
-        alert("You win, Rock beats Scissors");
+        playerwin++;
+        alert(`You win, Rock beats Scissors\n player: ${playerwin}        computer: ${compwin}`);
     }
     else{
-        alert(`You lose "${computerselection} beats ${playerselection}"`);
+        compwin++;
+        alert(`You lose ${computerselection} beats ${playerselection}\n player ${playerwin}        computer: ${compwin}`);
     }
-    return alert;
 
 }
 
 function game(){
     for(let i =0;i<5;i++){
     let computerselection = getComputerChoice();
-    let playerselection = prompt("Rock/Paper/Scissor");
+    let playerselection = prompt("Rock/Paper/Scissors");
     let plchoice = playerselection[0].toUpperCase() + playerselection.slice(1);;
     playRound(computerselection,plchoice);
+}
+if(compwin < playerwin)
+    alert("You win");
+else{
+    alert("You lose");
 }
 }
 game();
