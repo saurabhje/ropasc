@@ -36,7 +36,7 @@ function playRound(computerselection, playerselection) {
 
     } else if (computerselection == 'Scissors' && playerselection == 'Rock') {
             playerwin++;
-            tempresult.textContent = `You Win, Rock beats scissors\n player: ${playerwin}        computer: ${compwin}`;
+            tempresult.textContent = `You Win, Rock beats Scissors\n player: ${playerwin}        computer: ${compwin}`;
         }
 
      else {
