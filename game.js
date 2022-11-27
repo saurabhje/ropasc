@@ -1,9 +1,10 @@
 
-const finalresult = document.querySelector('.result');
+const result = document.querySelector('.result');
 const tempresult = document.querySelector('.tempresult');
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissor = document.querySelector("#scissor");
+const playerchoice = document.querySelector('button');
 let playerwin = 0;
 let compwin = 0;
 
@@ -27,22 +28,33 @@ function playRound(computerselection, playerselection) {
         tempresult.textContent = `Tie  player: ${playerwin}        computer: ${compwin}`;
     } else if (computerselection == 'Rock' && playerselection == 'Paper') {
             playerwin++;
-            tempresult.textContent = `You Win, Rock beats paper\n player: ${playerwin}        computer: ${compwin}`;
+            tempresult.textContent = `You Win, Paper beats Rock\n player: ${playerwin}        computer: ${compwin}`;
 
     } else if (computerselection == 'Paper' && playerselection == 'Scissors') {
             playerwin++;
-            tempresult.textContent = `You Win, Scissors beats paper\n player: ${playerwin}        computer: ${compwin}`;
+            tempresult.textContent = `You Win, Scissors beats Paper\n player: ${playerwin}        computer: ${compwin}`;
 
     } else if (computerselection == 'Scissors' && playerselection == 'Rock') {
-             playerwin++;
+            playerwin++;
             tempresult.textContent = `You Win, Rock beats scissors\n player: ${playerwin}        computer: ${compwin}`;
         }
 
      else {
         compwin++;
-        tempresult.textContent = `You Lose player: ${playerwin}        computer: ${compwin}`;
+        tempresult.textContent = `You Lose  player: ${playerwin}        computer: ${compwin}`;
+    }
+
+    if(playerwin ==5 && compwin ==5){
+        result.textContent = "-----------Tie-----------------";
+    }
+    else if(playerwin ==5){
+        result.textContent = "-----------You win--------------";
+    }
+    else if(compwin ==5){
+        result.textContent = "-----------You lose-------------";
     }
 }
+
 
 
 rock.addEventListener("click", () => {
@@ -61,12 +73,3 @@ scissor.addEventListener("click", () => {
     }
 });
 
-if(playerwin ==5 && compwin ==5){
-    result.textContent = "Tie------------------";
-}
-else if(playerwin ==5){
-    result.textContent = "You win---------------";
-}
-else if(compwin ==5){
-    result.textContent = "You lose--------------";
-}
