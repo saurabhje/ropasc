@@ -42,6 +42,16 @@ function playRound(computerselection, playerselection) {
         compwin++;
         tempresult.textContent = `You Lose player: ${playerwin}        computer: ${compwin}`;
     }
+    
+    if(playerwin ==5 && compwin ==5){
+    result.textContent = "Tie------------------";
+    }
+    else if(playerwin ==5){
+        result.textContent = "You win---------------";
+    }
+    else if(compwin ==5){
+        result.textContent = "You lose--------------";
+    }
 }
 
 
@@ -60,13 +70,3 @@ scissor.addEventListener("click", () => {
         playRound(getComputerChoice(), "Scissors");
     }
 });
-
-if(playerwin ==5 && compwin ==5){
-    result.textContent = "Tie------------------";
-}
-else if(playerwin ==5){
-    result.textContent = "You win---------------";
-}
-else if(compwin ==5){
-    result.textContent = "You lose--------------";
-}
