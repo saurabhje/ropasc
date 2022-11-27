@@ -1,5 +1,5 @@
 
-const finalresult = document.querySelector('.result');
+const result = document.querySelector('.result');
 const tempresult = document.querySelector('.tempresult');
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
