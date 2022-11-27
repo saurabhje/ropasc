@@ -1,53 +1,72 @@
-function getComputerChoice(){
-    let choice = Math.floor(Math.random()*3);
-    if(choice ==0){
+
+const finalresult = document.querySelector('.result');
+const tempresult = document.querySelector('.tempresult');
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+let playerwin = 0;
+let compwin = 0;
+
+
+function getComputerChoice() {
+    let choice = Math.floor(Math.random() * 3);
+    if (choice == 0) {
         return 'Rock';
-    }
-    else if(choice == 1){
+    } else if (choice == 1) {
         return 'Paper';
-    }
-    else{
+    } else {
         return 'Scissors';
     }
 }
-let playerwin = 0;
-let compwin = 0;
-function playRound(computerselection,playerselection){
-    if(computerselection === playerselection){
+
+
+function playRound(computerselection, playerselection) {
+      if (computerselection === playerselection) {
         playerwin++;
         compwin++;
-        alert(`Tie\n player: ${playerwin}        computer: ${compwin}`);
-    }
-    else if(computerselection == 'Rock' && playerselection == 'Paper'){
-        playerwin++;
-        alert(`You Win, Paper beats Rock\n player: ${playerwin}        computer: ${compwin}`);
-    }
-    else if(computerselection == 'Paper' && playerselection=='Scissors'){
-        playerwin++;
-        alert(`You Win, Scissors beats Paper\n player: ${playerwin}        computer: ${compwin}`);
-    }
-    else if(computerselection == 'Scissors' && playerselection == 'Rock'){
-        playerwin++;
-        alert(`You win, Rock beats Scissors\n player: ${playerwin}        computer: ${compwin}`);
-    }
-    else{
+        tempresult.textContent = `Tie  player: ${playerwin}        computer: ${compwin}`;
+    } else if (computerselection == 'Rock' && playerselection == 'Paper') {
+            playerwin++;
+            tempresult.textContent = `You Win, Rock beats paper\n player: ${playerwin}        computer: ${compwin}`;
+
+    } else if (computerselection == 'Paper' && playerselection == 'Scissors') {
+            playerwin++;
+            tempresult.textContent = `You Win, Scissors beats paper\n player: ${playerwin}        computer: ${compwin}`;
+
+    } else if (computerselection == 'Scissors' && playerselection == 'Rock') {
+             playerwin++;
+            tempresult.textContent = `You Win, Rock beats scissors\n player: ${playerwin}        computer: ${compwin}`;
+        }
+
+     else {
         compwin++;
-        alert(`You lose ${computerselection} beats ${playerselection}\n player ${playerwin}        computer: ${compwin}`);
+        tempresult.textContent = `You Lose player: ${playerwin}        computer: ${compwin}`;
     }
-
 }
 
-function game(){
-    for(let i =0;i<5;i++){
-    let computerselection = getComputerChoice();
-    let playerselection = prompt("Rock/Paper/Scissors");
-    let plchoice = playerselection[0].toUpperCase() + playerselection.slice(1);;
-    playRound(computerselection,plchoice);
+
+rock.addEventListener("click", () => {
+    if (playerwin < 5 && compwin < 5) {
+        playRound(getComputerChoice(), "Rock");
+    }
+});
+paper.addEventListener("click", () => {
+    if (playerwin < 5 && compwin < 5) {
+        playRound(getComputerChoice(), "Paper");
+    }
+});
+scissor.addEventListener("click", () => {
+    if (playerwin < 5 && compwin < 5) {
+        playRound(getComputerChoice(), "Scissors");
+    }
+});
+
+if(playerwin ==5 && compwin ==5){
+    result.textContent = "Tie------------------";
 }
-if(compwin < playerwin)
-    alert("You win");
-else{
-    alert("You lose");
+else if(playerwin ==5){
+    result.textContent = "You win---------------";
 }
+else if(compwin ==5){
+    result.textContent = "You lose--------------";
 }
-game();
