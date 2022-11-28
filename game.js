@@ -41,11 +41,11 @@ function playRound(computerselection, playerselection) {
 
      else {
         compwin++;
-        tempresult.textContent = `You Lose  player: ${playerwin}        computer: ${compwin}`;
+        tempresult.textContent = `You Lose,${computerselection} beats ${playerselection} player: ${playerwin}        computer: ${compwin}`;
     }
 
     if(playerwin ==5 && compwin ==5){
-        result.textContent = "-----------Tie-----------------";
+        result.textContent = "-----------Tie---------------";
     }
     else if(playerwin ==5){
         result.textContent = "-----------You win--------------";
